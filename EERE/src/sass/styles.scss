@@ -1,0 +1,214 @@
+@use "reset";
+@use "../../node_modules/animate.css/animate.css";
+
+$spacer: 16px;
+$theme-color-1: #007934;
+$theme-color-2: #69be28;
+$theme-color-3: #127ea8;
+$theme-color-gray: #5e6a71;
+$theme-color-dark-gray: #292929;
+$black: #121212;
+
+$mobile: 480px;
+
+body {
+    height: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
+    font-family: "franklin-gothic-atf", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: $black;
+}
+
+h1,
+h1.heading {
+    font-size: 4rem;
+    @media (max-width: $mobile) {
+        font-size: 3rem;
+    }
+}
+
+li,
+p {
+    margin-bottom: $spacer;
+    line-height: 1.6;
+    max-width: 60ch;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.heading {
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 3;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1;
+    @media (max-width: $mobile) {
+        font-size: 2rem;
+    }
+}
+
+.stat {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $theme-color-2;
+    display: inline-block;
+}
+
+a.cta {
+    background-color: $theme-color-1;
+    color: #fff;
+    padding: $spacer ($spacer * 2);
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.bg-pane {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    img {
+        position: absolute;
+        bottom: 0;
+        max-width: 100vw;
+        transition: all ease 2s;
+    }
+}
+
+.box {
+    padding: ($spacer * 1.6);
+    max-width: 460px;
+    position: relative;
+    background-color: #fff;
+    margin-bottom: $spacer * 1.5;
+    display: flex;
+    align-items: center;
+    @media (max-width: $mobile) {
+        flex-direction: column;
+    }
+    p:last-child {
+        margin-bottom: 0;
+    }
+    img {
+        width: 90px;
+        margin-right: ($spacer * 1.2);
+        display: inline-block;
+        @media (max-width: $mobile) {
+            margin-right: 0;
+            margin-bottom: $spacer;
+        }
+    }
+}
+
+.box-drop {
+    &::after {
+        background-color: $theme-color-3;
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -1rem;
+        left: -1rem;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+ul {
+    list-style: disc outside;
+    columns: 2;
+    margin-left: $spacer * 2;
+    @media (max-width: $mobile) {
+        columns: 1;
+    }
+}
+
+li {
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+.section {
+    position: relative;
+    min-height: 100vh;
+    padding-top: $spacer * 3;
+    padding-bottom: $spacer * 3;
+    display: flex;
+    align-items: center;
+    &.light {
+        color: #fff;
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 99;
+    margin: 0 ($spacer * 2);
+}
+
+.wp .content {
+    opacity: 0;
+    transition: opacity ease-in 500ms;
+}
+
+@for $i from 0 through 5 {
+    body.s_#{$i} {
+        #s_#{$i} .content {
+            opacity: 1;
+        }
+    }
+}
+
+#s_0 {
+    background: rgb(22, 131, 206);
+    background: linear-gradient(170deg, rgba(22, 131, 206, 1) 0%, rgba(26, 137, 208, 1) 30%, rgba(71, 195, 228, 1) 90%);
+}
+
+#s_1 {
+    background: #6da43e;
+    .p_0 {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+#s_2 {
+    background: #021a16;
+    .p_0 {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        top: -100px;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+#s_3 {
+    background: #1f1302;
+}
+
+.h_6 {
+    span {
+        display: block;
+    }
+}
