@@ -134,7 +134,7 @@ li {
 }
 
 .section {
-    min-height: 100vh;
+    // min-height: 100vh;
     position: relative;
     padding-top: $spacer * 3;
     padding-bottom: $spacer * 3;
@@ -168,13 +168,12 @@ li {
     .intro {
         color: $theme-color-4;
     }
-    .content {
-        margin-bottom: 20vh;
-    }
+    // .content {
+    //     margin-bottom: 20vh;
+    // }
 }
 
 .scene {
-    min-height: 140vh;
     .p_0 {
         top: 0;
     }
@@ -183,8 +182,6 @@ li {
     }
     .p_2 {
         top: 30%;
-    }
-    .content {
     }
 }
 
