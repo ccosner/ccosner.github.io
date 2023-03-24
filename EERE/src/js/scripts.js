@@ -37,3 +37,5 @@ wpArr.forEach((wp, i) => {
         offset: '50%'
     });
 });
+
+const rellax = new Rellax('.rellax');

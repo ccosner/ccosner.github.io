@@ -3,8 +3,9 @@
 
 $spacer: 16px;
 $theme-color-1: #007934;
-$theme-color-2: #69be28;
+$theme-color-2: #5ba423; // was #69be28
 $theme-color-3: #127ea8;
+$theme-color-4: #112553;
 $theme-color-gray: #5e6a71;
 $theme-color-dark-gray: #292929;
 $black: #121212;
@@ -17,13 +18,20 @@ body {
     overflow-x: hidden;
     font-family: "franklin-gothic-atf", sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     color: $black;
+}
+
+.inner-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0px auto;
+    overflow: hidden;
 }
 
 h1,
 h1.heading {
-    font-size: 4rem;
+    font-size: 3.5rem;
     @media (max-width: $mobile) {
         font-size: 3rem;
     }
@@ -45,7 +53,7 @@ img {
     margin-top: $spacer * 2;
     margin-bottom: $spacer * 3;
     text-transform: uppercase;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     line-height: 1;
     @media (max-width: $mobile) {
@@ -70,24 +78,14 @@ a.cta {
     display: inline-block;
 }
 
-.bg-pane {
-    height: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    img {
-        position: absolute;
-        bottom: 0;
-        max-width: 100vw;
-        transition: all ease 2s;
-    }
-}
-
 .box {
-    padding: ($spacer * 1.6);
+    padding: ($spacer * 0.5);
+    border-radius: ($spacer * 0.5);
     max-width: 460px;
     position: relative;
-    background-color: #fff;
+    z-index: 99;
+    background-color: rgba(#fff, 0.65);
+    backdrop-filter: blur(6px);
     margin-bottom: $spacer * 1.5;
     display: flex;
     align-items: center;
@@ -95,11 +93,11 @@ a.cta {
         flex-direction: column;
     }
     p:last-child {
-        margin-bottom: 0;
+        margin-bottom: ($spacer * 0.5);
     }
     img {
         width: 90px;
-        margin-right: ($spacer * 1.2);
+        margin-right: ($spacer);
         display: inline-block;
         @media (max-width: $mobile) {
             margin-right: 0;
@@ -135,14 +133,9 @@ li {
     font-weight: 600;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0px auto;
-}
-
 .section {
-    position: relative;
     min-height: 100vh;
+    position: relative;
     padding-top: $spacer * 3;
     padding-bottom: $spacer * 3;
     display: flex;
@@ -158,10 +151,53 @@ li {
     margin: 0 ($spacer * 2);
 }
 
-.wp .content {
-    opacity: 0;
-    transition: opacity ease-in 500ms;
+.top-scene {
+    background: rgb(22, 131, 206);
+    background: linear-gradient(170deg, rgba(22, 131, 206, 1) 0%, rgba(71, 195, 228, 1) 50%);
 }
+
+.pane {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.sky {
+    .heading,
+    .intro {
+        color: $theme-color-4;
+    }
+    .content {
+        margin-bottom: 20vh;
+    }
+}
+
+.scene {
+    min-height: 140vh;
+    .p_0 {
+        top: 0;
+    }
+    .p_1 {
+        top: 10%;
+    }
+    .p_2 {
+        top: 30%;
+    }
+    .content {
+    }
+}
+
+.bottom {
+    .p_0 {
+        top: 0;
+    }
+}
+
+// .wp .content {
+//     opacity: 0;
+//     transition: opacity ease-in 500ms;
+// }
 
 @for $i from 0 through 5 {
     body.s_#{$i} {
@@ -169,42 +205,6 @@ li {
             opacity: 1;
         }
     }
-}
-
-#s_0 {
-    background: rgb(22, 131, 206);
-    background: linear-gradient(170deg, rgba(22, 131, 206, 1) 0%, rgba(26, 137, 208, 1) 30%, rgba(71, 195, 228, 1) 90%);
-}
-
-#s_1 {
-    background: #6da43e;
-    .p_0 {
-        width: 100%;
-        position: absolute;
-        z-index: 1;
-        bottom: 0;
-        img {
-            width: 100%;
-        }
-    }
-}
-
-#s_2 {
-    background: #021a16;
-    .p_0 {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        z-index: 1;
-        top: -100px;
-        img {
-            width: 100%;
-        }
-    }
-}
-
-#s_3 {
-    background: #1f1302;
 }
 
 .h_6 {
