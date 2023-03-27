@@ -22,25 +22,6 @@ window.addEventListener('load', () => {
         const wpId = 'wp_' + i;
         wp.id = wpId;
 
-        // new Waypoint({
-        //     element: wp,
-        //     handler: function (direction) {
-        //         if (direction === 'down') {
-        //             wp.classList.remove('hidden');
-        //             if (wp.classList.contains('box')) {
-        //                 animateCSS(wp, 'zoomIn');
-        //             } else if (wp.classList.contains('bug-light')) {
-        //                 animateCSS(wp, 'flash');
-        //             } else {
-        //                 wp.childNodes.forEach((el) => {
-        //                     animateCSS(el, 'fadeInUp');
-        //                 });
-        //             }
-        //         }
-        //     },
-        //     offset: '80%'
-        // });
-
         new Waypoint.Inview({
             element: wp,
             enter: function (direction) {
