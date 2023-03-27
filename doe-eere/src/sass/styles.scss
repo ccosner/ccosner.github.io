@@ -28,7 +28,7 @@ body {
     overflow-x: hidden;
     font-family: "franklin-gothic-atf", sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     color: $black;
     @media (max-width: $mobile) {
         font-size: 16px;
@@ -39,11 +39,13 @@ body {
     position: relative;
     max-width: 900px;
     margin: 0px auto;
+    padding: 100px 0px;
     overflow: hidden;
 }
 
 h1 {
     margin-top: $spacer * 2;
+    margin-bottom: $spacer * 3;
     text-transform: uppercase;
     font-size: 4rem;
     font-weight: 600;
@@ -56,12 +58,13 @@ h1 {
 .intro {
     font-weight: 600;
     max-width: 400px;
+    margin-bottom: $spacer * 2;
 }
 
 li,
 p {
     margin-bottom: $spacer;
-    line-height: 1.6;
+    line-height: 1.5;
     max-width: 60ch;
 }
 
@@ -123,14 +126,13 @@ img {
 }
 
 .box {
-    padding: ($spacer * 0.5) $spacer;
+    padding: ($spacer * 0.5) ($spacer * 1.2);
     border-radius: ($spacer * 0.5);
     max-width: 480px;
     position: relative;
     z-index: 99;
-    background-color: rgba(#fff, 0.7);
+    background-color: rgba(#fff, 0.8);
     backdrop-filter: blur(6px);
-    margin-bottom: $spacer * 1.5;
     display: flex;
     align-items: center;
     @media (max-width: $mobile) {
@@ -143,7 +145,7 @@ img {
         margin-bottom: ($spacer * 0.5);
     }
     img {
-        width: 60px;
+        width: 50px;
         margin-right: ($spacer);
         display: inline-block;
         @media (max-width: $mobile) {
@@ -171,15 +173,14 @@ li {
     position: relative;
     padding-top: $spacer * 3;
     padding-bottom: $spacer * 3;
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
     &.light {
         color: #fff;
     }
 }
 
 .content {
-    width: 100%;
     position: relative;
     z-index: 99;
     margin: 0 ($spacer * 2);
@@ -215,7 +216,7 @@ li {
 }
 
 .sky {
-    min-height: 1000px;
+    min-height: 800px;
     @media (max-width: $breakpoint) {
         min-height: auto;
     }
@@ -224,56 +225,88 @@ li {
     .intro {
         color: $theme-color-4;
     }
-    .b_0 {
-        margin-top: 100px;
-        margin-left: auto;
-        @media (max-width: $breakpoint) {
-            margin-top: $spacer * 4;
-            position: relative;
-            margin-right: auto;
-            margin-left: auto;
+    .pane {
+        width: 100%;
+    }
+    .p_0 {
+        top: -100px;
+        .cloud-1 {
+            width: 100%;
+            background: url("../../images/cloud-1.png") no-repeat;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            animation: bg-slide 90s linear infinite;
+            animation-delay: -55s;
+            opacity: 0.9;
         }
+    }
+    .p_1 {
+        top: 340px;
+        .cloud-2 {
+            width: 100%;
+            background: url("../../images/cloud-2.png") no-repeat;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            animation: bg-slide 60s linear infinite;
+            animation-delay: -10s;
+            opacity: 0.9;
+        }
+    }
+}
+@keyframes bg-slide {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
     }
 }
 
 .scene {
-    min-height: 900px;
+    min-height: 1100px;
     @media (max-width: $breakpoint) {
         min-height: auto;
         padding-bottom: 200px;
     }
-    align-items: stretch;
-    .content {
-        height: 100%;
-        width: 100%;
-    }
     .p_0 {
-        top: -60px;
+        top: -10%;
     }
     .p_1 {
-        top: -40px;
+        top: 0%;
     }
     .p_2 {
-        top: 200px;
+        top: 30%;
     }
     .box {
-        position: absolute;
+        margin-bottom: $spacer * 6;
         &.b_0 {
-            top: -100px;
-            left: 40px;
-        }
-        &.b_1 {
-            top: 200px;
-            right: 0;
+            margin-left: auto;
+            margin-top: -100px;
         }
         &.b_2 {
-            top: 400px;
-            left: 0;
+            margin-left: auto;
         }
-        &.b_3 {
-            top: 700px;
-            right: 40px;
-        }
+        // position: absolute;
+        // &.b_0 {
+        //     top: -100px;
+        //     left: 40px;
+        // }
+        // &.b_1 {
+        //     top: 200px;
+        //     right: 0;
+        // }
+        // &.b_2 {
+        //     top: 400px;
+        //     left: 0;
+        // }
+        // &.b_3 {
+        //     top: 700px;
+        //     right: 40px;
+        // }
         @media (max-width: $breakpoint) {
             position: relative;
             &.b_0,
@@ -324,6 +357,12 @@ li {
     @media (max-width: $breakpoint) {
         background-color: #050c22;
         padding-bottom: 200px;
+    }
+    .h_5 {
+        margin-top: 100px;
+    }
+    .h_6 {
+        margin-top: 200px;
     }
 }
 

@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
 
             function handleAnimationEnd(event) {
                 event.stopPropagation();
-                //node.classList.remove(`${prefix}animated`, animationName);
+                node.classList.remove(`${prefix}animated`, animationName);
                 resolve('Animation ended');
             }
 
@@ -22,23 +22,47 @@ window.addEventListener('load', () => {
         const wpId = 'wp_' + i;
         wp.id = wpId;
 
-        new Waypoint({
+        // new Waypoint({
+        //     element: wp,
+        //     handler: function (direction) {
+        //         if (direction === 'down') {
+        //             wp.classList.remove('hidden');
+        //             if (wp.classList.contains('box')) {
+        //                 animateCSS(wp, 'zoomIn');
+        //             } else if (wp.classList.contains('bug-light')) {
+        //                 animateCSS(wp, 'flash');
+        //             } else {
+        //                 wp.childNodes.forEach((el) => {
+        //                     animateCSS(el, 'fadeInUp');
+        //                 });
+        //             }
+        //         }
+        //     },
+        //     offset: '80%'
+        // });
+
+        new Waypoint.Inview({
             element: wp,
-            handler: function (direction) {
-                if (direction === 'down') {
-                    wp.classList.remove('hidden');
-                    if (wp.classList.contains('box')) {
-                        animateCSS(wp, 'zoomIn');
-                    } else if (wp.classList.contains('bug-light')) {
-                        animateCSS(wp, 'flash');
-                    } else {
-                        wp.childNodes.forEach((el) => {
-                            animateCSS(el, 'fadeInUp');
-                        });
-                    }
+            enter: function (direction) {
+                wp.classList.remove('hidden');
+                if (wp.classList.contains('zoomIn')) {
+                    animateCSS(wp, 'zoomIn');
+                } else if (wp.classList.contains('fadeInLeft')) {
+                    animateCSS(wp, 'fadeInLeft');
+                } else if (wp.classList.contains('flash')) {
+                    animateCSS(wp, 'flash');
+                } else if (wp.classList.contains('fadeInUp')) {
+                    wp.childNodes.forEach((el) => {
+                        animateCSS(el, 'fadeInUp');
+                    });
+                } else {
                 }
             },
-            offset: '80%'
+            // entered: function (direction) {},
+            // exit: function (direction) {},
+            exited: function (direction) {
+                wp.classList.add('hidden');
+            }
         });
     });
 });
