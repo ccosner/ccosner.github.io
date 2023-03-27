@@ -25,7 +25,7 @@ function scssTask() {
         .pipe(sass()) // Transpiles SCSS to CSS
         .pipe(postcss([autoprefixer(), cssnano()])) // Add browser prefixes and minify
         .pipe(sourcemaps.write('.')) // Create sourcemap in the same place as the CSS
-        .pipe(dest('build')) // Put everything in the build directory
+        .pipe(dest('build/css')) // Put everything in the build directory
         .pipe(browserSync.stream());
 }
 
@@ -33,7 +33,7 @@ function jsTask() {
     return src(jsFiles)
         .pipe(concat('scripts.js')) // Combine all JS files together into index.js
         .pipe(uglify()) // Obfuscate the code
-        .pipe(dest('build')) // Put everything in the build directory
+        .pipe(dest('build/js')) // Put everything in the build directory
         .pipe(browserSync.stream()); // Update the browser
 }
 
